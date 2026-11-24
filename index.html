@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Hari Guru Nasional - Bu Korawati</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 45%, #172554 100%);
+      font-family: 'Quicksand', sans-serif;
+      color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      position: relative;
+      padding: 24px 16px 40px;
+    }
+    .bg-particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .particle { position: absolute; font-size: 1.2rem; opacity: 0.4; animation: floatUp linear infinite; }
+    @keyframes floatUp {
+      0% { transform: translateY(105vh) rotate(0deg); opacity: 0; }
+      15% { opacity: 0.5; }
+      85% { opacity: 0.5; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+    .container { position: relative; z-index: 2; width: 100%; max-width: 480px; text-align: center; }
+    .cover-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+      padding: 34px 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      transition: all 0.6s ease;
+    }
+    .cover-card.hide { opacity: 0; transform: scale(0.85) translateY(-20px); pointer-events: none; display: none; }
+    .stars-top { font-size: 1.1rem; letter-spacing: 6px; color: #fde047; margin-bottom: 10px; }
+    .badge-date {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.18);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: #bae6fd;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .apple-icon { font-size: 3rem; display: block; margin: 4px auto 10px; }
+    h1.main-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.9rem;
+      line-height: 1.25;
+      font-weight: 700;
+      background: linear-gradient(to right, #ffffff, #93c5fd, #fde047);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    .subtitle { font-size: 0.96rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 22px; }
+    .from-tag { font-size: 0.9rem; color: #94a3b8; margin-bottom: 20px; font-weight: 600; }
+    .envelope-box {
+      background: linear-gradient(145deg, rgba(30, 58, 138, 0.6), rgba(15, 23, 42, 0.8));
+      border: 1.5px dashed rgba(147, 197, 253, 0.45);
+      border-radius: 20px;
+      padding: 20px;
+    }
+    .envelope-label { font-family: 'Sacramento', cursive; font-size: 2.25rem; color: #fde047; margin-bottom: 2px; }
+    .teacher-full-name { font-size: 0.92rem; color: #bae6fd; font-weight: 700; margin-bottom: 8px; }
+    .btn-open {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.5);
+    }
+    .letter-card {
+      display: none;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255, 255, 255, 0.22);
+      border-radius: 28px;
+      padding: 28px 22px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    }
+    .letter-card.show { display: block; }
+    .media-header { display: flex; justify-content: center; align-items: center; gap: 16px; margin-bottom: 16px; }
+    .teacher-photo-frame {
+      width: 130px; height: 130px; border-radius: 24px; padding: 5px;
+      background: linear-gradient(135deg, #fde047, #38bdf8, #818cf8);
+      overflow: hidden;
+    }
+    .teacher-photo-inner { width: 100%; height: 100%; border-radius: 20px; background: #0f172a; overflow: hidden; }
+    .teacher-photo-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .sticker-wrapper { width: 95px; height: 95px; background: rgba(255, 255, 255, 0.14); border-radius: 50%; padding: 6px; display: flex; justify-content: center; align-items: center; }
+    .sticker-wrapper img { width: 80px; height: 80px; object-fit: contain; }
+    .letter-heading { font-family: 'Fredoka', sans-serif; font-size: 1.35rem; color: #fde047; margin-bottom: 4px; }
+    .letter-subheading { font-size: 0.88rem; color: #93c5fd; font-weight: 700; margin-bottom: 14px; }
+    .message-box {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 18px;
+      max-height: 240px;
+      overflow-y: auto;
+      text-align: left;
+      font-size: 0.94rem;
+      line-height: 1.75;
+      color: #f1f5f9;
+      margin-bottom: 18px;
+    }
+    .cursor { display: inline-block; width: 2px; height: 1em; background-color: #38bdf8; margin-left: 2px; animation: blink 0.8s infinite; }
+    .action-row { display: flex; justify-content: center; gap: 10px; }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.14);
+      color: #f8fafc;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      padding: 10px 24px;
+      border-radius: 999px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.92rem;
+      cursor: pointer;
+    }
+    .music-widget {
+      position: fixed; bottom: 20px; right: 20px; z-index: 100;
+      background: rgba(15, 23, 42, 0.92);
+      border: 2px solid rgba(56, 189, 248, 0.6);
+      padding: 10px 16px; border-radius: 999px;
+      display: flex; align-items: center; gap: 10px; cursor: pointer;
+    }
+    .music-icon { font-size: 1.3rem; }
+    .music-text { font-size: 0.85rem; font-weight: 700; color: #bae6fd; font-family: 'Fredoka', sans-serif; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  </style>
+</head>
+<body>
+
+  <div class="bg-particles" id="particles"></div>
+
+  <!-- ========================================== -->
+  <!-- CARA MENGGANTI LAGU:                        -->
+  <!-- Cukup ganti tulisan "lagu-guru.mp3" di bawah -->
+  <!-- dengan nama file MP3 Anda (misal: "lagu.mp3") -->
+  <!-- ========================================== -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="lagu-guru.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="music-widget" id="musicWidget">
+    <span class="music-icon" id="musicIcon">🎵</span>
+    <span class="music-text" id="musicLabel">Putar Musik</span>
+  </div>
+
+  <main class="container">
+    <section class="cover-card" id="coverCard">
+      <div class="stars-top">★★ 🍎 ★★</div>
+      <div class="badge-date">25 November 2026</div>
+      <h1 class="main-title">Selamat Hari Guru Nasional</h1>
+      <p class="subtitle">Terima kasih, Bu Kora,<br />pahlawan tanpa tanda jasa 💙</p>
+
+      <div class="envelope-box">
+        <div class="envelope-label">Untuk Bu Kora</div>
+        <div class="teacher-full-name">Ibu Korawati (Rara)</div>
+        <span class="apple-icon">🍎</span>
+        <p class="from-tag">Teruntuk Bu Kora 🫶 dari murid-muridmu</p>
+        <button class="btn-open" id="openBtn"><span>✉️</span> Buka Surat</button>
+      </div>
+    </section>
+
+    <section class="letter-card" id="letterCard">
+      <div class="media-header">
+        <!-- ========================================== -->
+        <!-- CARA MENGGANTI FOTO:                      -->
+        <!-- Cukup ganti tulisan "foto-bu-kora.jpg" di  -->
+        <!-- bawah dengan nama file foto Anda           -->
+        <!-- ========================================== -->
+        <div class="teacher-photo-frame">
+          <div class="teacher-photo-inner">
+            <img src="foto-bu-kora.jpg" alt="Foto Bu Kora" onerror="this.src='https://htmlku.com/0/panda/hearthappy.gif';" />
+          </div>
+        </div>
+
+        <div class="sticker-wrapper">
+          <img id="stickerImg" src="https://htmlku.com/0/panda/hearthappy.gif" alt="Stiker" />
+        </div>
+      </div>
+
+      <h2 class="letter-heading">Selamat Hari Guru, Bu Korawati! ❤️</h2>
+      <div class="letter-subheading">Ibu Korawati (Rara)</div>
+
+      <div class="message-box">
+        <span id="typedText"></span><span class="cursor" id="cursor"></span>
+      </div>
+
+      <div class="action-row">
+        <button class="btn-secondary" id="replayBtn">🔄 Ulangi Animasi</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const pesanUcapan = 
+      "Selamat Hari Guru, Bu Korawati!❤️\n\n" +
+      "Terima kasih atas segala ilmu, kesabaran, perhatian, dan kasih sayang yang telah Ibu berikan kepada kami. " +
+      "Mungkin selama ini kami belum selalu menjadi murid yang sempurna. Ada kalanya kami sulit diatur, kurang memperhatikan, " +
+      "atau bahkan tanpa sadar membuat Ibu merasa lelah. Namun, di balik semua itu, kami sangat menghargai setiap usaha " +
+      "dan pengorbanan Ibu dalam membimbing kami.\n\n" +
+      "Bagi kami, Ibu bukan hanya seseorang yang mengajarkan pelajaran, tetapi juga sosok yang memberikan banyak pelajaran " +
+      "tentang kehidupan. Setiap nasihat, teguran, dan arahan dari Ibu akan menjadi kenangan serta bekal berharga bagi kami di masa depan.\n\n" +
+      "Kami mungkin tidak bisa membalas semua kebaikan Ibu, tetapi kami berharap suatu hari nanti Ibu dapat melihat bahwa " +
+      "ilmu dan bimbingan yang Ibu berikan telah membawa kami menjadi pribadi yang lebih baik.\n\n" +
+      "Semoga Ibu Korawati selalu diberikan kesehatan, kebahagiaan, kesabaran, dan kekuatan dalam menjalankan tugas mulia ini. " +
+      "Jangan pernah merasa bahwa perjuangan Ibu sia-sia, karena setiap ilmu yang Ibu berikan akan selalu memiliki tempat di hati dan kehidupan kami.\n\n" +
+      "Terima kasih telah menjadi bagian dari perjalanan kami. Selamat Hari Guru, Bu Korawati. Jasa dan kebaikan Ibu akan selalu kami kenang.❤️";
+
+    const stikerAwal = "https://htmlku.com/0/panda/hearthappy.gif";
+    const stikerAkhir = "https://htmlku.com/0/panda/muah.gif";
+
+    const particlesContainer = document.getElementById("particles");
+    const icons = ["🍎", "💙", "✨", "⭐", "📚", "🎓", "❤️"];
+    for (let i = 0; i < 20; i++) {
+      const el = document.createElement("span");
+      el.className = "particle";
+      el.textContent = icons[Math.floor(Math.random() * icons.length)];
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.animationDuration = 8 + Math.random() * 10 + "s";
+      particlesContainer.appendChild(el);
+    }
+
+    const coverCard = document.getElementById("coverCard");
+    const letterCard = document.getElementById("letterCard");
+    const openBtn = document.getElementById("openBtn");
+    const replayBtn = document.getElementById("replayBtn");
+    const typedText = document.getElementById("typedText");
+    const cursor = document.getElementById("cursor");
+    const stickerImg = document.getElementById("stickerImg");
+
+    const bgMusic = document.getElementById("bgMusic");
+    const musicWidget = document.getElementById("musicWidget");
+    const musicIcon = document.getElementById("musicIcon");
+    const musicLabel = document.getElementById("musicLabel");
+
+    let typingTimer = null;
+    let isPlaying = false;
+
+    musicWidget.addEventListener("click", () => {
+      if (isPlaying) {
+        bgMusic.pause();
+        isPlaying = false;
+        musicIcon.textContent = "▶️";
+        musicLabel.textContent = "Putar Musik";
+      } else {
+        bgMusic.play().then(() => {
+          isPlaying = true;
+          musicIcon.textContent = "🎵";
+          musicLabel.textContent = "Musik Diputar 🎶";
+        }).catch(e => console.log(e));
+      }
+    });
+
+    function startTyping() {
+      clearInterval(typingTimer);
+      typedText.innerHTML = "";
+      cursor.style.display = "inline-block";
+      stickerImg.src = stikerAwal;
+
+      let plainText = pesanUcapan.replace(/\\n/g, '\n');
+      let idx = 0;
+      
+      typingTimer = setInterval(() => {
+        if (idx < plainText.length) {
+          if (plainText.substr(idx, 4) === '\\n\n' || plainText.substr(idx, 2) === '\\n') {
+            typedText.innerHTML += '<br>';
+            idx += (plainText.substr(idx, 4) === '\\n\n' ? 4 : 2);
+          } else {
+            if (plainText.charAt(idx) === '\n') {
+              typedText.innerHTML += '<br>';
+            } else {
+              let span = document.createElement('span');
+              span.textContent = plainText.charAt(idx);
+              typedText.appendChild(span);
+            }
+            idx++;
+          }
+          const msgBox = document.querySelector('.message-box');
+          msgBox.scrollTop = msgBox.scrollHeight;
+        } else {
+          clearInterval(typingTimer);
+          cursor.style.display = "none";
+          stickerImg.src = stikerAkhir;
+        }
+      }, 22);
+    }
+
+    openBtn.addEventListener("click", () => {
+      bgMusic.play().then(() => {
+        isPlaying = true;
+        musicIcon.textContent = "🎵";
+        musicLabel.textContent = "Musik Diputar 🎶";
+      }).catch(e => {});
+
+      coverCard.classList.add("hide");
+      letterCard.classList.add("show");
+      startTyping();
+    });
+
+    replayBtn.addEventListener("click", () => {
+      startTyping();
+    });
+  </script>
+</body>
+</html>
